@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "./gameboy";
+
+
+message LoadGameReq {
+    string path = 1;
+}
+
+message BaseResp {
+    string msg = 1;
+    int32 code =2;
+}
+
+message ButtonEvent {
+    int32 key =1;
+    int32 mode = 2;
+}
+
+message EventToC{
+    int32 type = 1; //1.frame 2.sta
+    bytes value = 2; //data
+}
