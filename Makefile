@@ -6,8 +6,9 @@ all:proto
 	#GO111MODULE=on GOARCH=arm64 CGO_ENABLED=1 GOOS=android  CXX=/home/bobo/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang++ CC=/home/bobo/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang go build -tags android  -ldflags ' -w -s ' -buildmode=c-shared -o ./android/app/libs/arm64-v8a/libgo.so core/main.go
 	#echo Build arm64-v8a finish
 
-	go build -tags nosqlite -ldflags="-w -s" -buildmode=c-shared -o linux/bundle/lib/libgo.so core/main.go
-	cp linux/bundle/lib/libgo.so .
+	#go build -tags nosqlite -ldflags="-w -s" -buildmode=c-shared -o linux/bundle/lib/libgo.so core/main.go
+	#cp linux/bundle/lib/libgo.so .
+	go build -tags nosqlite -ldflags="-w -s" -buildmode=c-shared -o macos/Frameworks/lib/libgo.dylib core/main.go
 	dart run ffigen
 
 
