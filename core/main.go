@@ -20,8 +20,6 @@ import (
 )
 
 func main() {
-	fmt.Println(8&1<<3, 8&(1<<3) , 253>>3&1 ,(253>>3)&1)
-
 }
 
 var (
@@ -52,7 +50,6 @@ func loadGame(port int64, buffer *C.uchar, size int) {
 	}
 	var err error
 	game, err = gameboy.Load(filePath)
-	println("load err", err)
 	if err != nil {
 		ffi.SendMessage(port, &pb.EventToC{
 			Type:  3,
@@ -60,6 +57,11 @@ func loadGame(port int64, buffer *C.uchar, size int) {
 		})
 		return
 	}
+
+	ffi.SendMessage(port, &pb.EventToC{
+		Type:  4,
+		Value: []byte(game.GameType()),
+	})
 
 	go game.Loop(port)
 }

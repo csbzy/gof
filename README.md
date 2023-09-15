@@ -1,8 +1,10 @@
 # gof
 [![Go Report Card](https://goreportcard.com/badge/github.com/csbzy/gof)](https://goreportcard.com/report/github.com/csbzy/gof)
+
+A GameBoy AND GameBob Advanced Emulator Support Android,Linux,Macos
+
 This is an experimental project to practice using ffi between flutter and golang. 
 The backend uses golang and the ui uses flutter to render the screen.
-A GameBoy Emulator Support Android,Linux,Macos
 
 
 ## Installation
