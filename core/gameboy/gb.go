@@ -70,6 +70,7 @@ type Gamer interface {
 	Stop()
 	Loop(port int64)
 	Rec(e *pb.ButtonEvent)
+	GameType() string
 }
 
 type GameboyAdvanced struct {
@@ -92,6 +93,10 @@ func (g *GameboyAdvanced) btnL() bool      { return false }
 
 func (g *GameboyAdvanced) Rec(e *pb.ButtonEvent) {
 	g.Event <- e
+}
+
+func (g *GameboyAdvanced) GameType() string {
+	return "gba"
 }
 
 func (g *GameboyAdvanced) Load(path string, isZip bool) error {
@@ -193,6 +198,11 @@ type Gameboy struct {
 func (g *Gameboy) Rec(e *pb.ButtonEvent) {
 	g.Event <- e
 }
+
+func (g *Gameboy) GameType() string {
+	return "gb"
+}
+
 func (g *Gameboy) Load(path string, isZip bool) error {
 	var opts []gb.GameboyOption
 	if g.Core != nil {

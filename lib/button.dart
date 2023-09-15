@@ -17,10 +17,15 @@ class Button extends StatefulWidget {
   /// Label
   String label;
 
+  double width;
+  double height;
+
   Button(
       {required this.label,
       required this.color,
       required this.onPressed,
+      this.width = 50,
+      this.height = 50,
       this.onReleased,
       this.labelColor = Colors.white,
       Key? key})
@@ -62,8 +67,8 @@ class ButtonState extends State<Button> {
             child:
                 Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
               Container(
-                  height: 50.0,
-                  width: 50.0,
+                  height: widget.width,
+                  width: widget.height,
                   decoration: BoxDecoration(
                       color: pressed ? Colors.grey : widget.color,
                       borderRadius: BorderRadius.circular(20.0)),
