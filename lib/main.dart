@@ -68,7 +68,11 @@ class _KeyBoardMap {
 
 class _MyHomePageState extends State<MyHomePage> {
   _MyHomePageState() {
-    dylib = libgo(getDynamicLibrary('libgo.so'));
+    String libName = "libgo.so";
+    if (Platform.isMacOS) {
+      libName = "libgo.dylib";
+    }
+    dylib = libgo(ffi.DynamicLibrary.open(libName));
     dylib!.initialize(ffi.NativeApi.initializeApiDLData);
   }
   libgo? dylib;
