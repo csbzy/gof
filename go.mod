@@ -6,7 +6,7 @@ require (
 	github.com/dgraph-io/badger v1.6.2
 	github.com/stretchr/testify v1.4.0
 	gitlab.com/squarealfa/dart_bridge v1.0.2
-	google.golang.org/protobuf v1.28.1
+	google.golang.org/protobuf v1.33.0
 )
 
 require (
